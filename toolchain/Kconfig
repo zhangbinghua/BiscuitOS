@@ -1,0 +1,28 @@
+#
+# Host Compiler toolchain
+#
+menuconfig TOOLCHAIN
+	bool  "Compile toolchain"
+	default y
+
+if TOOLCHAIN
+
+# ARM gnueabi
+source toolchain/arm-linux-gnueabi/Kconfig
+
+# ARM gnueabihf
+source toolchain/arm-linux-gnueabihf/Kconfig
+
+# ARM aarch64
+source toolchain/aarch64-linux-gnu/Kconfig
+
+# ARM none-gnueabi
+source toolchain/arm-none-linux-gnueabi/Kconfig
+
+# RISCV-64
+source toolchain/riscv64-biscuitos-linux-gnu/Kconfig
+
+# RISCV-32
+source toolchain/riscv32-biscuitos-linux-gnu/Kconfig
+
+endif # TOOLCHAIN

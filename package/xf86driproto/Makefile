@@ -1,0 +1,46 @@
+################################################
+#
+# xf86driproto
+#
+################################################
+PK_XF86DRIPROTO_NAME        := xf86driproto
+PK_XF86DRIPROTO_VERSION     := $(CONFIG_PK_XF86DRIPROTO_VERSION)
+PK_XF86DRIPROTO_SITE        := $(CONFIG_PK_XF86DRIPROTO_URL)
+PK_XF86DRIPROTO_GITHUB      := $(CONFIG_PK_XF86DRIPROTO_GITHUB)
+PK_XF86DRIPROTO_SUBNAME     :=
+PK_XF86DRIPROTO_BUILDARCH   := $(CONFIG_PK_XF86DRIPROTO_BUILDARCH)
+PK_XF86DRIPROTO_DIR         := $(srctree)/package/xf86driproto
+PK_XF86DRIPROTO_PATCH       := $(PK_XF86DRIPROTO_DIR)/patch
+PK_XF86DRIPROTO_BSBIT       := xf86driproto-$(PK_XF86DRIPROTO_VERSION).bsbit
+PK_XF86DRIPROTO_OUT         :=
+PK_XF86DRIPROTO_SCRIPTS     := $(srctree)/scripts/package/package.sh
+PK_XF86DRIPROTO_TAR         := $(CONFIG_PK_XF86DRIPROTO_TAR)
+PK_XF86DRIPROTO_PACKAGE     :=
+PK_XF86DRIPROTO_CONFIG      := $(CONFIG_PK_XF86DRIPROTO_CONFIG)
+SUB_TARGET                  += $(PK_XF86DRIPROTO_DIR)/build
+
+PK_XF86DRIPROTO_sh = $(CONFIG_SHELL) $(PK_XF86DRIPROTO_SCRIPTS) \
+                 $1X \
+                 $(PK_XF86DRIPROTO_NAME)X \
+                 $(PK_XF86DRIPROTO_VERSION)X \
+                 $(PK_XF86DRIPROTO_SITE)X \
+                 $(PK_XF86DRIPROTO_GITHUB)X \
+                 $(PK_XF86DRIPROTO_PATCH)X \
+                 $(CONFIG_LINUX_KERNEL_VERSION)X \
+	         $(CONFIG_MAIN_PROJ_NAME)X \
+                 $(PK_XF86DRIPROTO_TAR)X \
+                 $(CONFIG_LINUX_KERNEL_CROSS_COMPILE)X \
+                 $(PK_XF86DRIPROTO_SUBNAME)X \
+                 $(CONFIG_PK_XF86DRIPROTO_CONFIG)X \
+                 $(CONFIG_PK_XF86DRIPROTO_LIBPATH)X \
+                 $(CONFIG_PK_XF86DRIPROTO_CPPFLAGS)X \
+                 $(CONFIG_PK_XF86DRIPROTO_DPKCONFIG)X \
+                 $(CONFIG_PK_XF86DRIPROTO_CFLAGS)X \
+                 $(CONFIG_PK_XF86DRIPROTO_LDFLAGS)X \
+                 $(CONFIG_PK_XF86DRIPROTO_CXXFLAGS)X \
+                 $(CONFIG_PK_XF86DRIPROTO_ASFLAGS)X \
+                 $(PK_XF86DRIPROTO_BSBIT)X \
+                 $(PK_XF86DRIPROTO_BUILDARCH)X
+
+$(PK_XF86DRIPROTO_DIR)/build: FORCE
+	$(Q)$(call PK_XF86DRIPROTO_sh,$(srctree))

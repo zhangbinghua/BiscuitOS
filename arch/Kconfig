@@ -1,0 +1,35 @@
+menu "Architecture configure"
+
+choice
+	prompt "Setup Machine Architecture"
+
+config x86
+	bool "Intel x86 board (Compat: i386,486 etc)"
+
+config ARM
+	bool "ARM 32-bit"
+
+config ARM64
+	bool "ARM 64-bit"
+
+config RISCV32
+	bool "RISC-V 32-bit"
+
+config RISCV64
+	bool "RISC-V 64-bit"
+
+config X86_64
+	bool "X86_84 (AMD)"
+
+endchoice
+
+config ARCH_MAGIC
+	string
+	default "1" if x86
+	default "2" if ARM
+	default "3" if ARM64
+	default "4" if RISCV32
+	default "5" if RISCV64
+	default "6" if X86_64
+
+endmenu

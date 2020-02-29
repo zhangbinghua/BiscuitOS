@@ -1,0 +1,48 @@
+menuconfig PK_SLAB
+	bool "Slab/Slub/Slob Memory Allocator"
+
+if PK_SLAB
+
+# __getname
+source package/slab/__getname/Kconfig
+
+# kfree_const
+source package/slab/kfree_const/Kconfig
+
+# kmalloc_userspace
+source package/slab/kmalloc_userspace/Kconfig
+
+# kmemdup
+source package/slab/kmemdup/Kconfig
+
+# kmem_cache_create_usercopy module
+source package/slab/kmem_cache_create_usercopy_mod/Kconfig
+
+# kmem_cache_create_usercopy app
+source package/slab/kmem_cache_create_usercopy_app/Kconfig
+
+# KMEM_CACHE_USERCOPY
+source package/slab/KMEM_CACHE_USERCOPY/Kconfig
+
+# kmem_cache_userspace
+source package/slab/kmem_cache_userspace/Kconfig
+
+# kstrdup_const
+source package/slab/kstrdup_const/Kconfig
+
+# Name on userspace
+source package/slab/name_userspace/Kconfig
+
+# __putname
+source package/slab/__putname/Kconfig
+
+# slub on userspace
+source package/slab/slub_userspace/Kconfig
+
+# strncpy_from_user app
+source package/slab/strncpy_from_user_app/Kconfig
+
+# strncpy_from_user module
+source package/slab/strncpy_from_user_mod/Kconfig
+
+endif # PK_SLAB

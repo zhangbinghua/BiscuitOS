@@ -1,0 +1,15 @@
+menuconfig PK_MOD
+	bool "Module: Linux Device Driver"
+
+if PK_MOD
+
+# Application Project
+source package/module/Application_project/Kconfig
+
+# Module Project
+source package/module/Module_project/Kconfig
+
+# Basic Device Driver Module
+source package/module/module_core/Kconfig
+
+endif # PK_MOD

@@ -1,0 +1,36 @@
+menuconfig PK_FS_VFS
+	bool "VFS: Linux Virtual Filesystem"
+
+if PK_FS_VFS
+
+# d_alloc
+source "package/filesystem/vfs/d_alloc/Kconfig"
+
+# d_alloc_anon
+source "package/filesystem/vfs/d_alloc_anon/Kconfig"
+
+# get_fs_type
+source "package/filesystem/vfs/get_fs_type/Kconfig"
+
+# inode_init_owner
+source "package/filesystem/vfs/inode_init_owner/Kconfig"
+
+# new_inode
+source "package/filesystem/vfs/new_inode/Kconfig"
+
+# sget
+source "package/filesystem/vfs/sget/Kconfig"
+
+# user_path app
+source "package/filesystem/vfs/user_path_app/Kconfig"
+
+# user_path module
+source "package/filesystem/vfs/user_path_mod/Kconfig"
+
+# user_path_at_empty app
+source "package/filesystem/vfs/user_path_at_empty_app/Kconfig"
+
+# user_path_at_empty module
+source "package/filesystem/vfs/user_path_at_empty_mod/Kconfig"
+
+endif # PK_FS_VFS

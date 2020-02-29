@@ -1,0 +1,9 @@
+menuconfig PK_SYSCALL
+	bool "System Call"
+
+if PK_SYSCALL
+
+# open
+source "package/syscall/open/Kconfig"
+
+endif # PK_SYSCALL

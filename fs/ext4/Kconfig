@@ -1,0 +1,11 @@
+menuconfig FS_EXT4
+	bool "EX4 Filesystem(rootfs)"
+
+if FS_EXT4
+
+config EXT4_RISCV
+	default "-riscv" if RISCV64
+	default "-riscv" if RISCV32
+	string 
+
+endif # FS_EXT4

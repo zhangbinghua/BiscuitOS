@@ -2,55 +2,54 @@
 # Rootfs configure menu
 #
 
-menu "Rootfs: file system"
-
-config ROOTFS
-	bool "rootfs for BiscuitOS"
+menuconfig ROOTFS
+	bool "Root-Filesystem"
 	default y
 	help
 	  The rootfs for BiscuitOS
 
 if ROOTFS
 
-choice
-	prompt "Configure BiscuitOS rootfs"
-	default FS_MINIX
+# Ext4
+source fs/ext4/Kconfig
 
-config FS_MINIX
-	bool "Unix-MINIX Filesystem V1"
-	help
-	  The Minix filesystem
+# MINIX-FS
+source fs/minix/Kconfig
 
-config FS_EXT2
-	bool "(EXT2) Second extended Filesystem Revision 0"
-	help
-	  The Ext2 revision 0
+# Ext2
+source fs/ext2/Kconfig
 
-config FS_MSDOS
-	bool "MSDOS Filesystem"
-	help 
-	  The MSDOS rootfs.
-endchoice
+# MSDOS
+source fs/msdos/Kconfig
 
-config DISK_SIZE
-	int "Main Partition Size (MB)"
-	default 40
-	help
-	  Configure the size of disk.
+# XV6
+source fs/xv6/Kconfig
 
-config SWAP_SIZE
-	int "Swap Partition Size (MB)"
-	default 80
-	help
-	  Configure the size of swap
+# Apollo
+source fs/Apollo/Kconfig
 
-config FS_MAGIC
-	int
-	default 0     if FS_MINIX
-	default 1     if FS_EXT2
-	default 2     if FS_MSDOS
-	default 0
+# Debian
+source fs/Debian/Kconfig
+
+# BiscuitOS-Desktop
+source fs/BiscuitOS/Kconfig
+
+# BiscuitOS-Desktop only running
+source fs/BiscuitOS_only/Kconfig
+
+# Debian Server
+source fs/Debian_Server/Kconfig
+
+# Docker
+source fs/Docker/Kconfig
+
+
+config ROOTFS_SIZE
+	default 150
+	int "The size of Rootfs (MB)"
+
+config FREEZE_SIZE
+	default 512
+	int "The size of Freeze Disk (MB)"
 
 endif # Rootfs
-
-endmenu

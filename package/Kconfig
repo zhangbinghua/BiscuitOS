@@ -1,17 +1,348 @@
 #
 # Package common configure
 #
-menu "Common utilise"
-
-config COMMON_UTILISE
-	bool "Package and toolchain"
+menuconfig COMMON_UTILISE
+	bool "Package"
 	help
 	  binutilise
 
 if COMMON_UTILISE
 
-source package/gcc/Kconfig
+# Application Demo
+source package/DemoApo/Kconfig
+
+# arm-asm
+source package/arm-asm/Kconfig
+
+# atk
+source package/atk/Kconfig
+
+# autoconf
+source package/autoconf/Kconfig
+
+# automake
+source package/automake/Kconfig
+
+# bigreqsproto
+source package/bigreqsproto/Kconfig
+
+# binutils
+source package/gbinutils/Kconfig
+
+# binutils
+config PK_BINUTILS
+	bool "binutils: Linux 0.x and 1.x"
+
+# bitops
+source package/bitops/Kconfig
+
+# buddy
+source package/buddy/Kconfig
+
+# busybox
+source package/busybox/Kconfig
+
+# cairo
+source package/cairo/Kconfig
+
+# char
+source package/char/Kconfig
+
+# compositeproto
+source package/compositeproto/Kconfig
+
+# CMA
+source package/CMA/Kconfig
+
+# DMA
+source package/DMA/Kconfig
+
+# damageproto
+source package/damageproto/Kconfig
+
+# device-tree
+source package/device-tree/Kconfig
+
+# dr
+source package/dr/Kconfig
+
+# dri2proto
+source package/dri2proto/Kconfig
+
+# dri3proto
+source package/dri3proto/Kconfig
+
+# expat
+source package/expat/Kconfig
+
+# filesystem
+source package/filesystem/Kconfig
+
+# fixesproto
+source package/fixesproto/Kconfig
+
+# fontconfig
+source package/fontconfig/Kconfig
+
+# fontsproto
+source package/fontsproto/Kconfig
+
+# freetype
+source package/freetype/Kconfig
+
+# glib
+source package/glib/Kconfig
+
+# glibc
+source package/glibc/Kconfig
+
+# glproto
+source package/glproto/Kconfig
+
+# gobject-introspection
+source package/gobject-introspection/Kconfig
+
+# gtk+
+source package/gtk/Kconfig
+
+config PK_GCC
+	bool "GCC: Ancient linux 0.11"
+
+# Game: 2048
+source package/2048/Kconfig
+
+# Game: snake
+source package/snake/Kconfig
+
+# Game: tetris
+source package/tetris/Kconfig
+
+# GPIO
+source package/GPIO/Kconfig
+
+# harfbuzz
+source package/harfbuzz/Kconfig
+
+# hash
+source package/hash/Kconfig
+
+# hello
+source package/hello/Kconfig
+
+# highmem
+source package/highmem/Kconfig
+
+# i2c
+source package/i2c/Kconfig
+
+# idr
+source package/idr/Kconfig
+
+# input
+source package/input/Kconfig
+
+# inputproto
+source package/inputproto/Kconfig
+
+# kbproto
+source package/kbproto/Kconfig
+
+# kernel hacking
+source package/kernel_hacking/Kconfig
+
+# kobject
+source package/kobject/Kconfig
+
+# kmap
+source package/kmap/Kconfig
+
+# ktime
+source package/ktime/Kconfig
+
+# libdrm
+source package/libdrm/Kconfig
+
+# libelf
+source package/libelf/Kconfig
+
+# libepoxy
+source package/libepoxy/Kconfig
+
+# libffi
+source package/libffi/Kconfig
+
+# libfontenc
+source package/libfontenc/Kconfig
+
+# libpciaccess
+source package/libpciaccess/Kconfig
+
+# libpng
+source package/libpng/Kconfig
+
+# libxcb
+source package/libxcb/Kconfig
+
+# libxkbfile
+source package/libxkbfile/Kconfig
+
+# libxml2
+source package/libxml2/Kconfig
+
+# libxshmfence
+source package/libxshmfence/Kconfig
+
+# libX11
+source package/libX11/Kconfig
+
+# libXau
+source package/libXau/Kconfig
+
+# libXdamage
+source package/libXdamage/Kconfig
+
+# libXdmcp
+source package/libXdmcp/Kconfig
+
+# libXext
+source package/libXext/Kconfig
+
+# libXfixes
+source package/libXfixes/Kconfig
+
+# libXfont2
+source package/libXfont2/Kconfig
+
+# libXrender
+source package/libXrender/Kconfig
+
+# libXxf86vm
+source package/libXxf86vm/Kconfig
+
+# memblock
+source package/memblock/Kconfig
+
+# mesa
+source package/mesa/Kconfig
+
+# misc
+source package/misc/Kconfig
+
+# module
+source package/module/Kconfig
+
+# ncurses
+source package/ncurses/Kconfig
+
+# openssl
+source package/openssl/Kconfig
+
+# paging
+source package/paging/Kconfig
+
+# pango
+source package/pango/Kconfig
+
+# pcre
+source package/pcre/Kconfig
+
+# percpu
+source package/percpu/Kconfig
+
+# pixman
+source package/pixman/Kconfig
+
+# platform
+source package/platform/Kconfig
+
+# presentproto
+source package/presentproto/Kconfig
+
+# Python
+source package/Python/Kconfig
+
+# qemu-system
+source package/qemu/Kconfig
+
+# randrproto
+source package/randrproto/Kconfig
+
+# rbtree
+source package/rbtree/Kconfig
+
+# recordproto
+source package/recordproto/Kconfig
+
+# renderproto
+source package/renderproto/Kconfig
+
+# resourceproto
+source package/resourceproto/Kconfig
+
+# riscv-pk
+source package/riscv-pk/Kconfig
+
+# RaspberryPi 3B
+source package/rpi-3b-bootloader/Kconfig
+
+# RaspberryPi 4B
+source package/rpi-4b-bootloader/Kconfig
+
+# scrnsaverproto
+source package/scrnsaverproto/Kconfig
+
+# slab
+source package/slab/Kconfig
+
+# spi
+source package/spi/Kconfig
+
+# system call arm
+source package/syscall/Kconfig
+
+# util-linux
+source package/util-linux/Kconfig
+
+# UIO
+source package/UIO/Kconfig
+
+# vmalloc
+source package/vmalloc/Kconfig
+
+# videoproto
+source package/videoproto/Kconfig
+
+# workqueue
+source package/workqueue/Kconfig
+
+# xcb-proto
+source package/xcb-proto/Kconfig
+
+# xcmiscproto
+source package/xcmiscproto/Kconfig
+
+# xextproto
+source package/xextproto/Kconfig
+
+# xf86driproto
+source package/xf86driproto/Kconfig
+
+# xf86vidmodeproto
+source package/xf86vidmodeproto/Kconfig
+
+# xineramaproto
+source package/xineramaproto/Kconfig
+
+# xorg-server
+source package/xorg-server/Kconfig
+
+# xproto
+source package/xproto/Kconfig
+
+# xtrans
+source package/xtrans/Kconfig
+
+# zlib
+source package/zlib/Kconfig
 
 endif
-
-endmenu

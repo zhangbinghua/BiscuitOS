@@ -1,0 +1,45 @@
+menuconfig PK_CMA
+	bool "CMA: Contiguous Memory Allocator"
+
+if PK_CMA
+
+# Contiguous Memory Allocate application
+source package/CMA/CMA_app/Kconfig
+
+# Contiguous Memory Allocate Module
+source package/CMA/CMA_module/Kconfig
+
+# CMA on special Area application
+source package/CMA/CMA_area_app/Kconfig
+
+# CMA on speical Area Module
+source package/CMA/CMA_area_module/Kconfig
+
+# CMA Debris Application
+source package/CMA/CMA_debris_app/Kconfig
+
+# CMA Debris Modules
+source package/CMA/CMA_debris_module/Kconfig
+
+# CMA Debris long Application
+source package/CMA/CMA_debris_long_app/Kconfig
+
+# CMA Debris long Modules
+source package/CMA/CMA_debris_long_module/Kconfig
+
+# CMA Monitor
+source package/CMA/CMA_monitor/Kconfig
+
+# CMA Zombies Application
+source package/CMA/CMA_zomb_app/Kconfig
+
+# CMA Zombies Modules
+source package/CMA/CMA_zomb_module/Kconfig
+
+# CMA Plants Application
+source package/CMA/CMA_plant_app/Kconfig
+
+# CMA Plants Modules
+source package/CMA/CMA_plant_module/Kconfig
+
+endif # PK_CMA

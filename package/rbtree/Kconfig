@@ -1,0 +1,12 @@
+menuconfig PK_RBTREE
+	bool "Red-Black Tree Algorithem"
+
+if PK_RBTREE
+
+# rb_link_node
+source "package/rbtree/rb_link_node/Kconfig"
+
+# rbtree Application
+source "package/rbtree/rbtree_app/Kconfig"
+
+endif # PK_RBTREE

@@ -1,0 +1,13 @@
+menuconfig BOOTLOADER
+	bool "Bootloaders"
+	default n
+
+if BOOTLOADER	
+
+# SeaBIOS
+source "boot/SeaBIOS/Kconfig"
+
+# U-BOOT
+source "boot/u-boot/Kconfig"
+
+endif # BOOTLOADER

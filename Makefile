@@ -346,29 +346,7 @@ include/config/auto.conf: ;
 endif # $(dot-config)
 -include include/config/auto.conf
 
-#####
-# Kernel Version
-ifdef CONFIG_KERNEL_VERSION
-KERNEL_VERSION := $(patsubst "%",%,$(CONFIG_KERNEL_VERSION))
-else
-KERNEL_VERSION := 
-endif
-export KERNEL_VERSION
-ifdef CONFIG_KERNEL_MAGIC
-KERNEL_MAGIC := $(CONFIG_KERNEL_MAGIC)
-else
-KERNEL_MAGIC :=
-endif
-export KERNEL_MAGIC
-
-ifdef CONFIG_FS_MAGIC
-KERNEL_FS := $(CONFIG_FS_MAGIC)
-else
-KERNEL_FS := 0
-endif
-export KERNEL_FS
-
-TARGET_OUT := output kernel dl
+TARGET_OUT := output dl
 
 pre_output = $(foreach sub, $(TARGET_OUT),      \
                $(shell set -e;                  \
@@ -378,14 +356,45 @@ export SUB_TARGET  :=
 export STAGING_DIR := $(srctree)/output
 TARGET_BUILD_DIR   := $(call pre_output)
 
-# Target
-include target/Makefile
+ifdef CONFIG_TOOLCHAIN
+# Toolchain and prebuild
+include toolchain/Makefile
+endif
 
+ifdef CONFIG_COMMON_UTILISE
 # package
 include package/Makefile
+endif
 
+ifdef CONFIG_BOOTLOADER
+# Bootloader
+include boot/Makefile
+endif
+
+ifdef CONFIG_SUPPORT_BOARD_INDV
+# Board 
+include board/Makefile
+endif
+
+ifdef CONFIG_LINUX_KERNEL
+# kernel
+include kernel/linux/Makefile
+endif
+
+ifdef CONFIG_XV6
+# VX6
+include kernel/xv6/Makefile
+endif
+
+ifdef CONFIG_APOLLO
+# Apollo
+include kernel/Apollo/Makefile
+endif
+
+ifdef CONFIG_ROOTFS
 # Filesystem (must be last invoked)
 include fs/Makefile
+endif
 
 # The all: target is the default when no target is given on the
 # command line.
@@ -403,7 +412,7 @@ update:
 # make distclean Remove editor backup files, patch leftover files and the like
 
 # Directories & files removed with 'make clean'
-CLEAN_DIRS  += output
+CLEAN_DIRS  += include
 CLEAN_FILES +=	
 
 # Directories & files removed with 'make mrproper'
@@ -426,6 +435,7 @@ clean: $(clean-dirs)
 	@find . $(RCS_FIND_IGNORE) \
 		\( -name '*.[oa]' -o -name '.*.cmd' \
 		-o -name '.*.d' -o -name '.*.tmp' -o -name '*.mod.c' \
+		-o -name 'SeaBIOS.bin' -o -name '*.dtb' \
 		-o -name modules.builtin -o -name '.tmp_*.o.*' \
 		-o -name '*.gcno' \) -type f -print | xargs rm -f
 
@@ -442,7 +452,6 @@ $(mrproper-dirs):
 mrproper: clean $(mrproper-dirs)
 	$(call cmd,rmdirs)
 	$(call cmd,rmfiles)
-	$(Q)rm -rf $(srctree)/dl
 
 # distclean
 #

@@ -1,0 +1,15 @@
+menuconfig PK_BUDDY
+	bool "Buddy Physical Memory Allocator"
+
+if PK_BUDDY
+
+# Buddy Userspace
+source package/buddy/buddy_userspace/Kconfig
+
+# Buddy Highmem Userspace
+source package/buddy/buddy_highmem_userspace/Kconfig
+
+# PCP Userspace
+source package/buddy/PCP_userspace/Kconfig
+
+endif # PK_BUDDY

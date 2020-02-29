@@ -5,7 +5,7 @@
 ################################################
 MINIX_NAME       := minix
 MINIX_VERSION    := V1
-MINIX_SITE       := $(MP_DOWNLOAD)/rootfs
+MINIX_SITE       := https://raw.githubusercontent.com/BiscuitOS/PackageManage/master/rootfs
 MINIX_SUBNAME    := origin
 MINIX_DIR        := $(srctree)/fs/minix
 MINIX_OUT        := $(srctree)/output/fs/minix
@@ -15,9 +15,9 @@ MINIX_PACKAGE    := $(MINIX_NAME)-$(MINIX_SUBNAME)-$(MINIX_VERSION).img
 SUB_TARGET       += $(MINIX_DIR)/build
 
 run_minix_sh = $(CONFIG_SHELL) $(MINIX_SCRIPTS) \
-               $1 $(MINIX_NAME) $(MINIX_VERSION) \
-               $(KERNEL_VERSION) $(CONFIG_DISK_SIZE) $(CONFIG_SWAP_SIZE) \
-               $(KERNEL_MAGIC)
+               $1 $(MINIX_NAME)X $(MINIX_VERSION)X \
+               $(CONFIG_LINUX_KERNEL_VERSION)X \
+               $(CONFIG_MAIN_PROJ_NAME)X $(CONFIG_BOOT_SEABIOS)X
 
 $(MINIX_DIR)/build: FORCE
 	$(Q)$(call run_minix_sh,$(srctree))

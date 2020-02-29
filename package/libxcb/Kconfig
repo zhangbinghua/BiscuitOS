@@ -1,0 +1,55 @@
+menuconfig PK_LIBXCB
+	select PK_XCB_PROTO
+	select PK_LIBXAU
+	bool "libxcb"
+
+if PK_LIBXCB
+
+config PK_LIBXCB_VERSION
+	default "1.12"
+	string "verstion"
+
+config PK_LIBXCB_TAR
+	default "tar.gz"
+	string "tar type"
+
+config PK_LIBXCB_URL
+	default "https://www.x.org/releases/individual/xcb/"
+	string "url"
+
+config PK_LIBXCB_GITHUB
+	string "GitHub"
+
+config PK_LIBXCB_SRCFILE
+	string "Source code list"
+
+config PK_LIBXCB_CONFIG
+	default "--enable-silent-rules --disable-static"
+	string "CONFIG: Project Configure Options"
+
+config PK_LIBXCB_LIBPATH
+	string "LIBS: Libraries to pass to the linker, e.g. -l<library>"
+
+config PK_LIBXCB_CPPFLAGS
+	string "CPPFLAGS: C/C++ preprocessor flags, e.g. -I<include dir>"
+
+config PK_LIBXCB_DPKCONFIG
+	string "PKG_CONFIG_PATH: Directories to add to pkg-config's search path"
+
+config PK_LIBXCB_CFLAGS
+	string "CFLAGS: C compiler flags"
+
+config PK_LIBXCB_LDFLAGS
+	string "LDFLAGS: Linker flags"
+
+config PK_LIBXCB_CXXFLAGS
+	string "CXXFLAGS: C++ compiler flags"
+
+config PK_LIBXCB_ASFLAGS
+	string "CCASFLAGS: assembler compiler flags (defaults to CFLAGS)"
+
+config PK_LIBXCB_BUILDARCH
+	default "x86_64-unknown-linux-gnu"
+	string "--host options on configure for Architecture"
+
+endif # PK_LIBXCB

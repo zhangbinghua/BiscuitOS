@@ -1,0 +1,18 @@
+menuconfig PK_ARM_ASM
+	bool "ARM Assembly Instruction Sets"
+
+if PK_ARM_ASM
+
+# bic
+source package/arm-asm/bic/Kconfig
+
+# mov
+source package/arm-asm/mov/Kconfig
+
+# .pushsection
+source package/arm-asm/pushsection/Kconfig
+
+# .popsection
+source package/arm-asm/popsection/Kconfig
+
+endif # PK_ARM_ASM
